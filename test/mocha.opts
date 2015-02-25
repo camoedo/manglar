@@ -1,0 +1,4 @@
+--require should
+--require test/support/env
+--reporter dot
+--ui bdd
