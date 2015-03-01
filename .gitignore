@@ -26,3 +26,10 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+.idea/
+
+# Cloud9
+.c9/
+data/
+mongod
