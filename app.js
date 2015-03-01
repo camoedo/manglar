@@ -1,3 +1,5 @@
+
+var mongoose = require('mongoose');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -9,6 +11,26 @@ var config = require('./config.js')
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+mongoose.connect('mongodb://localhost/manglar');
+
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+  // yay!
+});
+
+var userSchema = mongoose.Schema({
+    username: { type: String, index: true}
+});
+
+var User = mongoose.model('User', userSchema);
+
+User.find(function(error, users){
+    if (error) return console.error(error);
+    console.log(users);
+});
 
 var app = express();
 
