@@ -17,7 +17,7 @@ var http = require('http');
 
 
 var app = express();
-var routes = require('./config/routes')(app);
+var routes = require('./config/routes');
 
 // view engine setup
 app.set('views', path.join(__dirname, '/app/views'));
